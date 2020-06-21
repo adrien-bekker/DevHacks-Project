@@ -22,14 +22,31 @@ public abstract class LevelOutline
 
     public abstract void playSceneThree();
 
-    public abstract void sceneOneResultAndSwitch(int score);
+    public void sceneOneResultAndSwitch(int score)
+    {
+        scores.add(score);
+        currentScene++;
+        playSceneTwo();
+    }
 
-    public abstract void sceneTwoResultAndSwitch(int score);
+    public void sceneTwoResultAndSwitch(int score)
+    {
+        scores.add(score);
+        currentScene++;
+        playSceneThree();
+    }
 
-    public abstract void sceneThreeResultAndSwitch(int score);
+    public void sceneThreeResultAndSwitch(int score)
+    {
+        scores.add(score);
+        currentScene++;
+        getConclusionScreen();
+    }
 
     public int getPreviousSceneScore()
     {
         return scores.get(currentScene - 1);
     }
+
+    public abstract void getConclusionScreen();
 }

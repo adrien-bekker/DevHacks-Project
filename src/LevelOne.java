@@ -29,15 +29,6 @@ public class LevelOne extends LevelOutline
             // Creates Scene 2 and sets it on the primary Stage
         SceneOne s1 = new SceneOne(question, answers, responses, primaryStage, this);
         s1.setScene();
-        
-
-    }
-
-    public void sceneOneResultAndSwitch(int score) 
-    {
-        scores.add(score);
-        currentScene++;
-        playSceneTwo();
     }
 
     public void playSceneTwo() 
@@ -54,13 +45,6 @@ public class LevelOne extends LevelOutline
         
     }
 
-    public void sceneTwoResultAndSwitch(int score) 
-    {
-        scores.add(score);
-        currentScene++;
-        playSceneThree();
-    }
-
     public void playSceneThree() 
     {
         String question = "What order will you perform the last steps?";
@@ -73,13 +57,6 @@ public class LevelOne extends LevelOutline
         // Creates Scene 1 and sets it on the primary Stage
         SceneThree s3 = new SceneThree(question, answers, responses, primaryStage, this);
         s3.setScene();
-    }
-
-    public void sceneThreeResultAndSwitch(int score)
-    {
-        scores.add(score);
-        currentScene++;
-        getConclusionScreen();
     }
 
     public void getConclusionScreen()
@@ -106,8 +83,4 @@ public class LevelOne extends LevelOutline
         Scene l1EndScene = new Scene(l1EndPane, 720, 540);
         primaryStage.setScene(l1EndScene);
     }
-
-    
-
-    
 }
