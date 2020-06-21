@@ -57,8 +57,8 @@ public class LevelOne extends LevelOutline
     public void playSceneThree() 
     {
         String question = "What order will you perform the last steps?";
-        String[] answers = { "Loop the suture around the needle holder, grasp the suture end with needle holder, pull the needle holder towards you and lay the final knot",
-                "Loop the suture around the needle holder, grasp the suture end with needle holder, pull the needle holder towards you and lay the final knot, trim the suture ends",
+        String[] answers = { "Loop the suture around the needle holder, grasp the suture end with needle holder, pull the needle holder towards you and lay the final knot, trim the suture ends",
+                "Loop the suture around the needle holder, grasp the suture end with needle holder, pull the needle holder towards you and lay the final knot",
                     "Loop the suture around the needle holder, grasp the suture end with needle holder, trim the suture ends", 
                     "Tie single knot like tying a shoelace over the wound" };
         String[] responses = {""};
@@ -115,7 +115,10 @@ public class LevelOne extends LevelOutline
         // Congratulations text
         congrats.setWrapText(true);
         congrats.setFont(Font.font("Comic Sans", FontWeight.EXTRA_BOLD, 15));
-        congrats.setTextFill(Color.GREEN);
+        if(sum > 5)
+            congrats.setTextFill(Color.GREEN);
+        else
+            congrats.setTextFill(Color.RED);
 
         Label points = new Label("You earned " + sum + " points.");
         points.setWrapText(true);
