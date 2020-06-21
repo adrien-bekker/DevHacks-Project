@@ -4,6 +4,10 @@ import java.util.concurrent.TimeUnit;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class LevelOne extends LevelOutline
@@ -80,10 +84,27 @@ public class LevelOne extends LevelOutline
 
     public void getConclusionScreen()
     {
-        Label labe = new Label("TESTSTSTSTST");
-        Pane pane23 = new Pane(labe);
-        Scene test = new Scene(pane23, 258, 320);
-        primaryStage.setScene(test);
+        VBox elements = new VBox(10);
+        Label congrats = new Label("Congratulations surgeon. You have suceeded in your first surgery.");
+
+        congrats.setWrapText(true);
+        congrats.setFont(Font.font("Comic Sans", FontWeight.EXTRA_BOLD, 15));
+        congrats.setTextFill(Color.GREEN);
+        int sum = 0;
+        for(int i = 0; i < scores.size(); i++)
+        {
+            sum += scores.get(i);
+        }
+
+        Label points = new Label("You earned " + sum + " points.");
+        points.setWrapText(true);
+        points.setFont(Font.font("Comic Sans", FontWeight.BOLD, 15));
+        points.setTextFill(Color.BLUE);
+
+        elements.getChildren().addAll(congrats, points);
+        Pane l1EndPane = new Pane(elements);
+        Scene l1EndScene = new Scene(l1EndPane, 720, 540);
+        primaryStage.setScene(l1EndScene);
     }
 
     
