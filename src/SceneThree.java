@@ -41,7 +41,18 @@ public class SceneThree extends SceneOutline {
             gameOver.setFont(Font.font("Comic Sans", FontWeight.EXTRA_BOLD, 25));
             gameOver.setTextFill(Color.RED);
 
-            gameOverPane.getChildren().addAll(youLose, gameOver); //add stylish text
+            Button button = new Button("Restart Level");
+            EventHandler<ActionEvent> event = new EventHandler<ActionEvent>()
+            {
+                public void handle(ActionEvent e) 
+                {
+                    new LevelOne(primaryStage);
+                    
+                }
+            };
+            button.setOnAction(event);
+
+            gameOverPane.getChildren().addAll(youLose, gameOver, button); //add stylish text
             resultScreen = new Scene(gameOverPane, 720, 540);
             primaryStage.setScene(resultScreen);
         }
@@ -62,7 +73,18 @@ public class SceneThree extends SceneOutline {
             gameOver.setFont(Font.font("Comic Sans", FontWeight.EXTRA_BOLD, 25));
             gameOver.setTextFill(Color.RED);
 
-            gameOverPane.getChildren().addAll(youLose, gameOver); //add stylish text
+            Button button = new Button("Restart Level");
+            EventHandler<ActionEvent> event = new EventHandler<ActionEvent>()
+            {
+                public void handle(ActionEvent e) 
+                {
+                    new LevelOne(primaryStage);
+                    
+                }
+            };
+            button.setOnAction(event);
+
+            gameOverPane.getChildren().addAll(youLose, gameOver, button); //add stylish text
             resultScreen = new Scene(gameOverPane, 720, 540);
             primaryStage.setScene(resultScreen);
         }

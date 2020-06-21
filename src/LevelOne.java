@@ -1,7 +1,11 @@
+
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -61,24 +65,59 @@ public class LevelOne extends LevelOutline
 
     public void getConclusionScreen()
     {
-        VBox elements = new VBox(10);
-        Label congrats = new Label("Congratulations surgeon. You have suceeded in your first surgery.");
 
-        congrats.setWrapText(true);
-        congrats.setFont(Font.font("Comic Sans", FontWeight.EXTRA_BOLD, 15));
-        congrats.setTextFill(Color.GREEN);
+        // Success or failure text
+        VBox elements = new VBox(10);
+
         int sum = 0;
         for(int i = 0; i < scores.size(); i++)
         {
             sum += scores.get(i);
         }
+        
+        Label congrats = new Label("");
+        Button button = new Button("");
+
+        if (sum > 5)
+        {
+            congrats.setText("Congratulations surgeon. You have suceeded in your first surgery.");
+            button.setText("Next Level");
+            EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() 
+            {
+                public void handle(ActionEvent e) 
+                {
+                    new LevelTwo(primaryStage);
+                    
+                }   
+            };
+            button.setOnAction(event);
+        }
+        else
+        {
+            congrats.setText("Sorry, you have failed your surgery. Please restart the level.");
+            button.setText("Restart Level");
+            EventHandler<ActionEvent> event = new EventHandler<ActionEvent>()
+            {
+                public void handle(ActionEvent e) 
+                {
+                    new LevelOne(primaryStage);
+                    
+                }
+            };
+            button.setOnAction(event);
+        }   
+
+        // Congratulations text
+        congrats.setWrapText(true);
+        congrats.setFont(Font.font("Comic Sans", FontWeight.EXTRA_BOLD, 15));
+        congrats.setTextFill(Color.GREEN);
 
         Label points = new Label("You earned " + sum + " points.");
         points.setWrapText(true);
         points.setFont(Font.font("Comic Sans", FontWeight.BOLD, 15));
         points.setTextFill(Color.BLUE);
 
-        elements.getChildren().addAll(congrats, points);
+        elements.getChildren().addAll(congrats, points, button);
         Pane l1EndPane = new Pane(elements);
         Scene l1EndScene = new Scene(l1EndPane, 720, 540);
         primaryStage.setScene(l1EndScene);
