@@ -66,7 +66,7 @@ public class CharacterCreation extends Screen
         EventHandler<ActionEvent> eventNext = new EventHandler<ActionEvent>() { 
             public void handle(ActionEvent e) 
             { 
-                new LevelOne(primaryStage);
+                switchScene(level1Info.getScene());
             } 
         };
         
