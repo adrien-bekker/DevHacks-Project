@@ -29,6 +29,7 @@ public class LevelTwo extends LevelOutline {
 
             // Creates Scene 2 and sets it on the primary Stage
         SceneOne s1 = new SceneOne(question, answers, responses, primaryStage, this);
+        s1.setScore(1);
         s1.setScene();*/
     }
 

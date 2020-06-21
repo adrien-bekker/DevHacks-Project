@@ -78,4 +78,9 @@ public class SceneOne extends SceneOutline
 
         pane1.getChildren().add(nxtPage);
     }
+
+    public void setLevel(int newLevel)
+    {
+        currentLevel = newLevel;
+    }
 }
