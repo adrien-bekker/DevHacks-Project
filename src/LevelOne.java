@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 public class LevelOne {
     private ArrayList<Integer> scores;
     private int currentScene;
-    private Stage primaryStage;
+    protected Stage primaryStage;
 
     public LevelOne(Stage stage) {
         primaryStage = stage;
