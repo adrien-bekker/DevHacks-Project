@@ -44,7 +44,27 @@ public class SceneOne extends Screen {
         confirm = new Button("Confirm");
         
         pane1 = new VBox(20);
-        pane1.getChildren().addAll(task, button1, button2, button3, button4, confirm, feedback);
+        pane1.getChildren().addAll(task);
+        int chosen = 0;
+
+        ArrayList<Integer> randoms = new ArrayList<Integer>();
+        for(int i = 1; i <= 4; i++)
+            randoms.add(i);
+
+        while(randoms.size() > 0)
+        {
+            chosen = randoms.remove((int) (Math.random()*(randoms.size())));
+            if(chosen == 1)
+                pane1.getChildren().add(button1);
+            else if(chosen == 2)
+                pane1.getChildren().add(button2);
+            else if(chosen == 3)
+                pane1.getChildren().add(button3);
+            else if(chosen == 4)
+                pane1.getChildren().add(button4);
+        }
+        
+        pane1.getChildren().addAll(confirm, feedback);
         sampleScene = new Scene(pane1, 720, 540);
         primaryStage.setScene(sampleScene);
         buttonActivation();
