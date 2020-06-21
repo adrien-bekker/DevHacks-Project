@@ -49,6 +49,7 @@ public class SceneTwo extends SceneOutline
             {
                 public void handle(ActionEvent e) 
                 {
+                    System.out.println()
                     new LevelOne(primaryStage);
                     
                 }

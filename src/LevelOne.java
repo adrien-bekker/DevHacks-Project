@@ -32,6 +32,7 @@ public class LevelOne extends LevelOutline
 
             // Creates Scene 2 and sets it on the primary Stage
         SceneOne s1 = new SceneOne(question, answers, responses, primaryStage, this);
+        s1.setLevel(0);
         s1.setScene();
     }
 
@@ -65,7 +66,6 @@ public class LevelOne extends LevelOutline
 
     public void getConclusionScreen()
     {
-
         // Success or failure text
         VBox elements = new VBox(10);
 
@@ -86,7 +86,7 @@ public class LevelOne extends LevelOutline
             {
                 public void handle(ActionEvent e) 
                 {
-                    new LevelTwo(primaryStage);
+                    new Level2Info(primaryStage);
                     
                 }   
             };
