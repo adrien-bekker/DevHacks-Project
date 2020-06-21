@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -19,7 +21,7 @@ public class Level2Info extends Screen {
 
     public Level2Info(Stage stage)
     {
-        super(stage);
+        super(stage);  
     }
 
     public Scene getScene() 
@@ -27,8 +29,8 @@ public class Level2Info extends Screen {
         // Creates vbox and label
         VBox vBox = new VBox();
         Label info = new Label("This patient is a little tougher. " + 
-            "He has appendicitis; a condition in which the appendix becomes inflamed and filled with pus, causing pain." + 
-            "To remove it you will have to perform an appendectomy." + 
+            "He has appendicitis; a condition in which the appendix becomes inflamed and filled with pus, causing pain. " + 
+            "To remove it you will have to perform an appendectomy. " + 
             "Good luck! \n" + " ");
         info.setStyle("-fx-font-style: italic; -fx-font-size: 18;");
         info.setWrapText(true);
@@ -45,7 +47,7 @@ public class Level2Info extends Screen {
         BackgroundFill buttonFill = new BackgroundFill(Color.rgb(227, 230, 94), CornerRadii.EMPTY, Insets.EMPTY);
         Background buttonBack = new Background(buttonFill);
         next.setBackground(buttonBack);
-
+        buttonActivation();
         Scene scene = new Scene(vBox, 720, 540);
 
         return scene;

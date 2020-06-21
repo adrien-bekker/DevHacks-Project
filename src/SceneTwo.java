@@ -30,14 +30,53 @@ public class SceneTwo extends SceneOutline
     //sets up scene two to display for the user
     public void setScene() 
     {
-        System.out.println(currentLevel);
-        if(level.getPreviousSceneScore() == 0) //if the player chose the "dumb" option
+        if(level.getPreviousSceneScore() == 0 && currentLevel == 1) //if the player chose the "dumb" option
         {
             currentLevel--;
             VBox gameOverPane = new VBox(20);
             gameOverPane.setAlignment(Pos.CENTER);
             Label failReason = new Label("The patient gives you a puzzling look and refuses to have surgery" + 
             " as they believe it is unsafe. They decide to go to a different hospital.");
+            failReason.setWrapText(true);
+            gameOverPane.getChildren().add(failReason);
+    
+            Label youLose = new Label("Your medical license has been revoked.");
+            youLose.setFont(Font.font("Comic Sans", FontWeight.EXTRA_BOLD, 15));
+
+            Label gameOver = new Label("Game Over");
+            gameOver.setFont(Font.font("Comic Sans", FontWeight.EXTRA_BOLD, 25));
+            gameOver.setTextFill(Color.RED);
+
+            Button button = new Button("Restart Level");
+            EventHandler<ActionEvent> event = new EventHandler<ActionEvent>()
+            {
+                public void handle(ActionEvent e) 
+                {
+                    System.out.println();
+                    new LevelOne(primaryStage);    
+                }
+            };
+            button.setOnAction(event);
+            
+            // Styling
+            gameOverPane.setAlignment(Pos.CENTER);
+            BackgroundFill backFill = new BackgroundFill(Color.AQUAMARINE, CornerRadii.EMPTY, Insets.EMPTY);
+            Background back = new Background(backFill);
+            gameOverPane.setBackground(back);
+            BackgroundFill buttonFill = new BackgroundFill(Color.rgb(227, 230, 94), CornerRadii.EMPTY, Insets.EMPTY);
+            Background buttonBack = new Background(buttonFill);
+            button.setBackground(buttonBack);
+
+            gameOverPane.getChildren().addAll(youLose, gameOver, button); //add stylish text
+            resultScreen = new Scene(gameOverPane, 720, 540);
+            primaryStage.setScene(resultScreen);
+        }
+        else if(level.getPreviousSceneScore() == 0 && currentLevel == 2)
+        {
+            currentLevel--;
+            VBox gameOverPane = new VBox(20);
+            gameOverPane.setAlignment(Pos.CENTER);
+            Label failReason = new Label("Many necessary steps were skipped before removing the appendix, resulting in a severe infection for the patient");
             failReason.setWrapText(true);
             gameOverPane.getChildren().add(failReason);
     

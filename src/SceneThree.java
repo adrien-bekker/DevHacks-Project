@@ -30,7 +30,6 @@ public class SceneThree extends SceneOutline
 
     public void setScene() 
     {
-        System.out.println(currentLevel);
         if(level.getPreviousSceneScore() == 0 && currentLevel == 1)
         {
             currentLevel--;

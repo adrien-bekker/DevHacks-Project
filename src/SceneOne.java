@@ -27,7 +27,6 @@ public class SceneOne extends SceneOutline {
 
     public void setScene() 
     {
-        System.out.println(currentLevel);
         score = -1;
         Label task = new Label(question);
         feedback = new Label(" ");

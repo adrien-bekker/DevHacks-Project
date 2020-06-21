@@ -71,6 +71,7 @@ public class LevelOne extends LevelOutline
     public void getConclusionScreen()
     {
         // Success or failure text
+        System.out.println(scores);
         VBox elements = new VBox(10);
 
         int sum = 0;
@@ -91,7 +92,7 @@ public class LevelOne extends LevelOutline
                 public void handle(ActionEvent e) 
                 {
                     Level2Info info = new Level2Info(primaryStage);
-                    switchScene(info);
+                    primaryStage.setScene(info.getScene());
                 }   
             };
             button.setOnAction(event);
@@ -136,4 +137,6 @@ public class LevelOne extends LevelOutline
         Scene l1EndScene = new Scene(elements, 720, 540);
         primaryStage.setScene(l1EndScene);
     }
+
+
 }
