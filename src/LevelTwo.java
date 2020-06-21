@@ -26,10 +26,15 @@ public class LevelTwo extends LevelOutline {
         
     }
 
+    public LevelTwo(Stage stage, int num) 
+    {
+        super(stage, num);
+    }
+
     public void playSceneOne() {
         // Questions and answers
         String question = "What materials do you need?";
-        String[] answers = { "Trocar , laparoscope, clamp, staples",
+        String[] answers = { "Trocar, laparoscope, clamp, staples",
                 "Trocar, laparoscope, clamp, scalpel",
                     "Scalpel, laparoscope, sutures, staples", "Hammer" };
         String[] responses = { "Nurse recommends a trocar so you find that" };
@@ -70,7 +75,6 @@ public class LevelTwo extends LevelOutline {
     public void getConclusionScreen()
     {
         // Success or failure text
-        System.out.println(scores);
         VBox elements = new VBox(10);
 
         int sum = 0;
