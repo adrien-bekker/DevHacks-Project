@@ -25,7 +25,7 @@ public abstract class SceneOutline extends Screen
     protected Label feedback;
     protected LevelOutline level;
     protected VBox pane1;
-    
+
     public SceneOutline(String q, String[] a, String[] r, Stage stage, LevelOutline lvl) {
         super(stage);
         question = q;
