@@ -43,12 +43,32 @@ public class SceneOne extends Screen
         configureB2();
         configureB3();
         configureB4();
-        confirm = new Button("Confirm");
+        //confirm = new Button("Confirm");
 
         VBox pane1 = new VBox(5);
-        pane1.getChildren().addAll(task, button1, button2, button3, button4, confirm, feedback);
+        pane1.getChildren().addAll(task, button1, button2, button3, button4, feedback);
         sampleScene = new Scene(pane1);
-        buttonActivation();
+        //buttonActivation();
+        while(!group.getSelectedToggle().isSelected())
+                {
+                    if(group.getSelectedToggle().equals(button1))
+                    {
+                        score = 3;
+                        
+                    }
+                    else if(group.getSelectedToggle().equals(button2))
+                    {
+                        score = 2;
+                    }
+                    else if(group.getSelectedToggle().equals(button3))
+                    {
+                        score = 1;
+                    }
+                    else if(group.getSelectedToggle().equals(button4))
+                    {
+                        score = 0;
+                    }
+                }
         return sampleScene;
     }
 
@@ -103,7 +123,7 @@ public class SceneOne extends Screen
                 }
                 
             } 
-        }
+        };
     }
 
     public int getScore()

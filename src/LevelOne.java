@@ -26,6 +26,7 @@ public class LevelOne {
         // Creates Scene 1 and sets it on the primary Stage
         SceneOne s1 = new SceneOne(question, answers, responses, primaryStage);
         primaryStage.setScene(s1.getScene());
+    
         
         // Gets the score of the action NEED HALP
         int value = s1.getScore();
