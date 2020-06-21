@@ -53,14 +53,14 @@ public class level1Info extends Screen {
 
     public void buttonActivation() 
     {
-                // When next button is pressed
-                EventHandler<ActionEvent> eventNext = new EventHandler<ActionEvent>() { 
-                    public void handle(ActionEvent e) 
-                    { 
-                        new LevelOne(primaryStage);
-                    } 
-                };
+        // When next button is pressed
+        EventHandler<ActionEvent> eventNext = new EventHandler<ActionEvent>() { 
+            public void handle(ActionEvent e) 
+            { 
+                new LevelOne(primaryStage);
+            } 
+        };
         
-                next.setOnAction(eventNext);
+        next.setOnAction(eventNext);
     }
 }

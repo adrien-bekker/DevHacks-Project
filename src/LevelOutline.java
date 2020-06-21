@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public abstract class LevelOutline extends Screen
+public abstract class LevelOutline
 {
     protected static ArrayList<Integer> scores;
     protected int currentScene;
@@ -11,9 +11,9 @@ public abstract class LevelOutline extends Screen
 
     public LevelOutline(Stage stage)
     {
-        super(stage);
-        scores = new ArrayList<Integer>();
+        primaryStage = stage;
         playSceneOne();
+        scores = new ArrayList<Integer>();
         currentScene = 0;
     }
 
@@ -51,10 +51,5 @@ public abstract class LevelOutline extends Screen
 
     public abstract void getConclusionScreen();
 
-    public void buttonActivation() {}
-
-    public Scene getScene() {
-        return null;
-    }
     
 }

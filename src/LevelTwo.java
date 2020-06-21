@@ -15,12 +15,12 @@ public class LevelTwo extends LevelOutline {
     public LevelTwo(Stage stage)
     {
         super(stage);
+        
     }
 
     public void playSceneOne() {
         // Questions and answers
-        System.out.println(scores);
-        /*String question = "What materials do you need?";
+        String question = "What materials do you need?";
         String[] answers = { "Trocar , laparoscope, clamp, staples",
                 "Trocar, laparoscope, clamp, scalpel",
                     "Scalpel, laparoscope, sutures, staples", "Hammer" };
@@ -28,8 +28,7 @@ public class LevelTwo extends LevelOutline {
 
             // Creates Scene 2 and sets it on the primary Stage
         SceneOne s1 = new SceneOne(question, answers, responses, primaryStage, this);
-        s1.setScore(1);
-        s1.setScene();*/
+        s1.setScene();
     }
 
     public void playSceneTwo() 
