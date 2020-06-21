@@ -17,6 +17,14 @@ public abstract class LevelOutline
         currentScene = 0;
     }
 
+    //for accessing sum alone
+    public LevelOutline(Stage stage, int num)
+    {
+        primaryStage = stage;
+        playSceneOne();
+        currentScene = 0;
+    }
+
     public abstract void playSceneOne();
 
     public abstract void playSceneTwo();
@@ -51,5 +59,14 @@ public abstract class LevelOutline
 
     public abstract void getConclusionScreen();
 
+    public int getSum()
+    {
+        int sum = 0;
+        for(int i = 0; i < scores.size(); i++)
+        {
+            sum += scores.get(i);
+        }
+        return sum;
+    }
     
 }

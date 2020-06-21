@@ -69,7 +69,6 @@ public class LevelThree extends LevelOutline {
     public void getConclusionScreen()
     {
         // Success or failure text
-        System.out.println(scores);
         VBox elements = new VBox(10);
 
         int sum = 0;
@@ -80,13 +79,18 @@ public class LevelThree extends LevelOutline {
         
         Label congrats = new Label("");
         Button button = new Button("");
+        Label totalPoints = new Label("");
 
         if (sum > 5)
         {
+            primaryStage.hide();
+            LevelOne lvl1 = new LevelOne(primaryStage, 10);
+            LevelTwo lvl2 = new LevelTwo(primaryStage, 10);
+            int totalSum = lvl1.getSum() + lvl2.getSum() + getSum();
             if(sum == 9)
                 congrats.setText("Well done surgeon. You have now proven yourself to be the best surgeon of Northwestern Memorial Hospital.");
             else
-                congrats.setText("Well done surgeon. You have now proven yourself to be a adequate surgeon of Northwestern Memorial Hospital.");
+                congrats.setText("Well done surgeon. You have now proven yourself to be an adequate surgeon of Northwestern Memorial Hospital.");
             button.setText("End Game");
             EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() 
             {
@@ -96,6 +100,14 @@ public class LevelThree extends LevelOutline {
                 }   
             };
             button.setOnAction(event);
+
+            totalPoints = new Label("You completed the game with " + totalSum + " of out 27 points");
+
+            totalPoints.setFont(Font.font("Comic Sans", FontWeight.EXTRA_BOLD, 15));
+
+            totalPoints.setWrapText(true);
+            totalPoints.setFont(Font.font("Comic Sans", FontWeight.BOLD, 15));
+            totalPoints.setTextFill(Color.DARKMAGENTA);
         }
         else
         {
@@ -105,7 +117,7 @@ public class LevelThree extends LevelOutline {
             {
                 public void handle(ActionEvent e) 
                 {
-                    new LevelOne(primaryStage);
+                    new LevelThree(primaryStage);
                     
                 }
             };
@@ -114,6 +126,7 @@ public class LevelThree extends LevelOutline {
 
         // Congratulations text
         congrats.setWrapText(true);
+        congrats.setPadding(new Insets(10));
         congrats.setFont(Font.font("Comic Sans", FontWeight.EXTRA_BOLD, 15));
         if(sum > 5)
             congrats.setTextFill(Color.GREEN);
@@ -136,8 +149,13 @@ public class LevelThree extends LevelOutline {
         button.setBackground(buttonBack);
 
         // Adding elements
-        elements.getChildren().addAll(congrats, points, button);
+        if(sum > 5)
+            elements.getChildren().addAll(congrats, points, button, totalPoints);
+        else
+            elements.getChildren().addAll(congrats, points, button);
+        elements.setAlignment(Pos.CENTER);
         Scene l1EndScene = new Scene(elements, 720, 540);
         primaryStage.setScene(l1EndScene);
+        primaryStage.show();
     }
 }

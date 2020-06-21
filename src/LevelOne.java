@@ -21,10 +21,14 @@ import javafx.stage.Stage;
 
 public class LevelOne extends LevelOutline
 {
-
     public LevelOne(Stage stage) 
     {
         super(stage);
+    }
+
+    public LevelOne(Stage stage, int num) 
+    {
+        super(stage, num);
     }
 
     public void playSceneOne() {
@@ -44,7 +48,7 @@ public class LevelOne extends LevelOutline
     {
         String question = "What order do you perform the procedure?";
         String[] answers = { "Give anesthetic, disinfect the wound, place needle in needle holder",
-                "Disinfect the wound, give anesthetic, place needle in needle holder, perform",
+                "Disinfect the wound, give anesthetic, place needle in needle holder",
                     "Disinfect the wound, place needle in needle holder", "Place needle in needle holder" };
         String[] responses = {""};
 
@@ -71,14 +75,9 @@ public class LevelOne extends LevelOutline
     public void getConclusionScreen()
     {
         // Success or failure text
-        System.out.println(scores);
         VBox elements = new VBox(10);
 
-        int sum = 0;
-        for(int i = 0; i < scores.size(); i++)
-        {
-            sum += scores.get(i);
-        }
+        int sum = getSum();
         
         Label congrats = new Label("");
         Button button = new Button("");
@@ -141,5 +140,6 @@ public class LevelOne extends LevelOutline
         primaryStage.setScene(l1EndScene);
     }
 
+    
 
 }
