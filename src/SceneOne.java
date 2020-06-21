@@ -20,9 +20,7 @@ public class SceneOne extends Screen
     private Button confirm;
     private int score = -1, scene1Pos = 0;
     private Scene sampleScene;
-    private Stage primaryStage;
     private Label feedback;
-    boolean stop = false;
 
     public SceneOne(String q, String[] a, String[] r, Stage stage)
     {
@@ -37,7 +35,7 @@ public class SceneOne extends Screen
     {
         score = -1;
         Label task = new Label(question);
-        feedback  = new Label();
+        feedback  = new Label(" ");
 
         configureB1();
         configureB2();
@@ -45,12 +43,12 @@ public class SceneOne extends Screen
         configureB4();
         //confirm = new Button("Confirm");
 
-        VBox pane1 = new VBox(5);
+        VBox pane1 = new VBox(20);
         pane1.getChildren().addAll(task, button1, button2, button3, button4, feedback);
         sampleScene = new Scene(pane1, 720, 540);
         primaryStage.setScene(sampleScene);
         //buttonActivation();
-        while(!group.getSelectedToggle().isSelected())
+        /*while(group.getSelectedToggle().equals(null))
                 {
                     if(group.getSelectedToggle().equals(button1))
                     {
@@ -69,7 +67,9 @@ public class SceneOne extends Screen
                     {
                         score = 0;
                     }
-                }
+                } */
+        
+        System.out.println(group.getSelectedToggle());
         primaryStage.show();
     }
 
