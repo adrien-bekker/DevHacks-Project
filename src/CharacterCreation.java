@@ -1,6 +1,7 @@
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,8 +9,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class CharacterCreation extends Screen
 {
@@ -26,18 +32,28 @@ public class CharacterCreation extends Screen
         // Creates a VBox
         VBox vbox = new VBox(20);
 
+        // Title
+        GridPane pane = new GridPane();
+        Label title = new Label("Create Your Character! \n");
+        title.setStyle("-fx-font-weight: bold; -fx-font-size: 24;");
+        title.setTextFill(Color.DARKGOLDENROD);
+        pane.add(title, 0, 0);
+        pane.setAlignment(Pos.CENTER);
+
         // Creates a pane with Name label and TextField
         GridPane namePane = new GridPane();
         Label name = new Label("Name: ");
+        name.setStyle("-fx-font-weight: bold; -fx-font-size: 15");
         nameInput = new TextField();
-        namePane.add(name, 0, 0);
-        namePane.add(nameInput, 1, 0);
+        namePane.add(name, 1, 0);
+        namePane.add(nameInput, 2, 0);
         namePane.setAlignment(Pos.CENTER);
 
         // Creates a pane with Gender options
         GridPane genderPane = new GridPane();
         ToggleGroup genderGroup = new ToggleGroup();
         Label gender = new Label("Gender: ");
+        gender.setStyle("-fx-font-weight: bold; -fx-font-size: 15");
         RadioButton male = new RadioButton("Male"); 
         RadioButton female = new RadioButton("Female");
         RadioButton other = new RadioButton("Other");
@@ -50,9 +66,17 @@ public class CharacterCreation extends Screen
         genderPane.add(other, 0, 3);
         genderPane.setAlignment(Pos.CENTER);
 
-        // Creates a button and adds panes and button to the VBox
+        // Creates background and sets button color
+        BackgroundFill backFill = new BackgroundFill(Color.AQUAMARINE, CornerRadii.EMPTY, Insets.EMPTY);
+        Background back = new Background(backFill);
+        vbox.setBackground(back);
+        BackgroundFill buttonFill = new BackgroundFill(Color.rgb(227, 230, 94), CornerRadii.EMPTY, Insets.EMPTY);
+        Background buttonBack = new Background(buttonFill);
         next = new Button("Next");
-        vbox.getChildren().addAll(namePane, genderPane, next);
+        next.setBackground(buttonBack);
+
+        // Creates a button and adds panes and button to the VBox
+        vbox.getChildren().addAll(pane, namePane, genderPane, next);
         vbox.setAlignment(Pos.CENTER);
 
         // Creates and returns a scene with all the items
