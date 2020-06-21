@@ -32,6 +32,7 @@ public class level1Info extends Screen {
                                 "Remember, the patient's life depends on your success. \n" + " ");
         info.setStyle("-fx-font-style: italic; -fx-font-size: 18;");
         info.setWrapText(true);
+        info.setPadding(new Insets(10));
         next = new Button("Next");
         info.setAlignment(Pos.CENTER);
         vBox.getChildren().addAll(info, next);

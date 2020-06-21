@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -10,10 +11,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-public class LevelTwo extends LevelOutline
-{
 
-    public LevelTwo(Stage stage) 
+public class LevelTwo extends LevelOutline {
+    public LevelTwo(Stage stage)
     {
         super(stage);
     }
@@ -83,5 +83,6 @@ public class LevelTwo extends LevelOutline
         Pane l1EndPane = new Pane(elements);
         Scene l1EndScene = new Scene(l1EndPane, 720, 540);
         primaryStage.setScene(l1EndScene);
+      
     }
 }
