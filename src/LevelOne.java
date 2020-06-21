@@ -24,14 +24,16 @@ public class LevelOne {
         String[] responses = { "Nurse recommends anesthetic so you grab that as well " };
 
         // Creates Scene 1 and sets it on the primary Stage
-        SceneOne s1 = new SceneOne(question, answers, responses, primaryStage);
+        SceneOne s1 = new SceneOne(question, answers, responses, primaryStage, this);
         s1.setScene();
     
-        
-        // Gets the score of the action NEED HALP
-        int value = s1.getScore();
-        System.out.println(value);
 
+    }
+
+    public void sceneOneResultAndSwitch(int score) {
+        scores.add(score);
+        System.out.println(score);
+        playSceneTwo();
     }
 
     public void playSceneTwo() {
