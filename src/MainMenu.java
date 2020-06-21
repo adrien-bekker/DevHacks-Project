@@ -31,7 +31,7 @@ public class MainMenu extends Screen
 
         // Adds the objects to the box, then to the scene, and returns it
         vBox.getChildren().addAll(label, start, exit);
-        Scene scene = new Scene(vBox, 300, 300);
+        Scene scene = new Scene(vBox, 720, 540);
         return scene;
     }
 
@@ -41,7 +41,7 @@ public class MainMenu extends Screen
         EventHandler<ActionEvent> eventStart = new EventHandler<ActionEvent>() { 
             public void handle(ActionEvent e) 
             { 
-                //switchScene();
+                switchScene(new CharacterCreation(primaryStage));
             } 
         };
 
