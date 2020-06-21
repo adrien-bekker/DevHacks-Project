@@ -31,6 +31,8 @@ public class MainMenu extends Screen
 
         // Creates labels, image, and buttons
         Label label = new Label("Surgery Simulator");
+        label.setStyle("-fx-font-weight: bold; -fx-font-size: 24");
+        label.setTextFill(Color.DARKGOLDENROD);
         start = new Button("Start");
         exit = new Button("Exit");
         ImageView image = new ImageView(new Image("file:src/Surgeon .png"));
@@ -38,10 +40,14 @@ public class MainMenu extends Screen
         image.setFitWidth(300);
         
 
-        // Creates background
+        // Creates background and button color
         BackgroundFill backFill = new BackgroundFill(Color.AQUAMARINE, CornerRadii.EMPTY, Insets.EMPTY);
         Background back = new Background(backFill);
         vBox.setBackground(back);
+        BackgroundFill buttonFill = new BackgroundFill(Color.rgb(227, 230, 94), CornerRadii.EMPTY, Insets.EMPTY);
+        Background buttonBack = new Background(buttonFill);
+        start.setBackground(buttonBack);
+        exit.setBackground(buttonBack);
 
 
         // Adds the objects to the vbox, then to the scene, and returns it
