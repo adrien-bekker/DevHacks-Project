@@ -5,12 +5,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 
 import java.util.*;
@@ -54,6 +58,15 @@ public class SceneThree extends SceneOutline
             };
             button.setOnAction(event);
 
+            // Styling
+            gameOverPane.setAlignment(Pos.CENTER);
+            BackgroundFill backFill = new BackgroundFill(Color.AQUAMARINE, CornerRadii.EMPTY, Insets.EMPTY);
+            Background back = new Background(backFill);
+            gameOverPane.setBackground(back);
+            BackgroundFill buttonFill = new BackgroundFill(Color.rgb(227, 230, 94), CornerRadii.EMPTY, Insets.EMPTY);
+            Background buttonBack = new Background(buttonFill);
+            button.setBackground(buttonBack);
+
             gameOverPane.getChildren().addAll(youLose, gameOver, button); //add stylish text
             resultScreen = new Scene(gameOverPane, 720, 540);
             primaryStage.setScene(resultScreen);
@@ -85,6 +98,15 @@ public class SceneThree extends SceneOutline
                 }
             };
             button.setOnAction(event);
+
+            // Styling
+            gameOverPane.setAlignment(Pos.CENTER);
+            BackgroundFill backFill = new BackgroundFill(Color.AQUAMARINE, CornerRadii.EMPTY, Insets.EMPTY);
+            Background back = new Background(backFill);
+            gameOverPane.setBackground(back);
+            BackgroundFill buttonFill = new BackgroundFill(Color.rgb(227, 230, 94), CornerRadii.EMPTY, Insets.EMPTY);
+            Background buttonBack = new Background(buttonFill);
+            button.setBackground(buttonBack);
 
             gameOverPane.getChildren().addAll(youLose, gameOver, button); //add stylish text
             resultScreen = new Scene(gameOverPane, 720, 540);
@@ -123,6 +145,16 @@ public class SceneThree extends SceneOutline
                     pane1.getChildren().add(button4);
             }
             
+            // Styling
+            pane1.setAlignment(Pos.CENTER);
+            BackgroundFill backFill = new BackgroundFill(Color.AQUAMARINE, CornerRadii.EMPTY, Insets.EMPTY);
+            Background back = new Background(backFill);
+            pane1.setBackground(back);
+            BackgroundFill buttonFill = new BackgroundFill(Color.rgb(227, 230, 94), CornerRadii.EMPTY, Insets.EMPTY);
+            Background buttonBack = new Background(buttonFill);
+            task.setStyle("-fx-font-size: 15; -fx-font-weight: bold;");
+            confirm.setBackground(buttonBack);
+
             pane1.getChildren().addAll(confirm, feedback);
 
             sampleScene = new Scene(pane1, 720, 540);
@@ -146,5 +178,10 @@ public class SceneThree extends SceneOutline
         };
         nxtPage.setOnAction(event);
         pane1.getChildren().add(nxtPage);
+
+        //Button Styling
+        BackgroundFill buttonFill = new BackgroundFill(Color.rgb(227, 230, 94), CornerRadii.EMPTY, Insets.EMPTY);
+        Background buttonBack = new Background(buttonFill);
+        nxtPage.setBackground(buttonBack);
     }
 }

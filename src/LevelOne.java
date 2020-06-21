@@ -4,9 +4,14 @@ import java.util.concurrent.TimeUnit;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -117,9 +122,19 @@ public class LevelOne extends LevelOutline
         points.setFont(Font.font("Comic Sans", FontWeight.BOLD, 15));
         points.setTextFill(Color.BLUE);
 
+
+        // Styling
+        elements.setAlignment(Pos.CENTER);
+        BackgroundFill backFill = new BackgroundFill(Color.AQUAMARINE, CornerRadii.EMPTY, Insets.EMPTY);
+        Background back = new Background(backFill);
+        elements.setBackground(back);
+        BackgroundFill buttonFill = new BackgroundFill(Color.rgb(227, 230, 94), CornerRadii.EMPTY, Insets.EMPTY);
+        Background buttonBack = new Background(buttonFill);
+        button.setBackground(buttonBack);
+
+        // Adding elements
         elements.getChildren().addAll(congrats, points, button);
-        Pane l1EndPane = new Pane(elements);
-        Scene l1EndScene = new Scene(l1EndPane, 720, 540);
+        Scene l1EndScene = new Scene(elements, 720, 540);
         primaryStage.setScene(l1EndScene);
     }
 }
