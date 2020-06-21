@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SceneThree extends SceneOutline {
 
-    public SceneThree(String q, String[] a, String[] r, Stage stage, LevelOne lvl)
+    public SceneThree(String q, String[] a, String[] r, Stage stage, LevelOutline lvl)
     {
         super(q, a, r, stage, lvl);
     }

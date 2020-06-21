@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 public class SceneTwo extends SceneOutline 
 {
-    public SceneTwo(String q, String[] a, String[] r, Stage stage, LevelOne lvl)
+    public SceneTwo(String q, String[] a, String[] r, Stage stage, LevelOutline lvl)
     {
         super(q, a, r, stage, lvl);
     }

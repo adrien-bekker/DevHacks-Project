@@ -4,7 +4,7 @@ import javafx.stage.Stage;
 
 public abstract class LevelOutline 
 {
-    protected ArrayList<Integer> scores;
+    protected static ArrayList<Integer> scores;
     protected int currentScene;
     protected Stage primaryStage;
 
