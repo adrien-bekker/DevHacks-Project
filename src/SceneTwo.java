@@ -22,18 +22,18 @@ import javafx.stage.Stage;
 
 public class SceneTwo extends SceneOutline 
 {
-    private static int currentLevel;
     public SceneTwo(String q, String[] a, String[] r, Stage stage, LevelOutline lvl)
     {
         super(q, a, r, stage, lvl);
-        currentLevel++;
     }
 
     //sets up scene two to display for the user
     public void setScene() 
     {
-        if(level.getPreviousSceneScore() == 0 && currentLevel == 1) //if the player chose the "dumb" option
+        System.out.println(currentLevel);
+        if(level.getPreviousSceneScore() == 0) //if the player chose the "dumb" option
         {
+            currentLevel--;
             VBox gameOverPane = new VBox(20);
             gameOverPane.setAlignment(Pos.CENTER);
             Label failReason = new Label("The patient gives you a puzzling look and refuses to have surgery" + 
@@ -53,7 +53,7 @@ public class SceneTwo extends SceneOutline
             {
                 public void handle(ActionEvent e) 
                 {
-                    System.out.println()
+                    System.out.println();
                     new LevelOne(primaryStage);
                     
                 }
@@ -64,7 +64,7 @@ public class SceneTwo extends SceneOutline
             gameOverPane.setAlignment(Pos.CENTER);
             BackgroundFill backFill = new BackgroundFill(Color.AQUAMARINE, CornerRadii.EMPTY, Insets.EMPTY);
             Background back = new Background(backFill);
-            pane1.setBackground(back);
+            gameOverPane.setBackground(back);
             BackgroundFill buttonFill = new BackgroundFill(Color.rgb(227, 230, 94), CornerRadii.EMPTY, Insets.EMPTY);
             Background buttonBack = new Background(buttonFill);
             button.setBackground(buttonBack);
