@@ -17,16 +17,18 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
-public class SceneThree extends SceneOutline {
-
+public class SceneThree extends SceneOutline 
+{
+    private static int currentLevel;
     public SceneThree(String q, String[] a, String[] r, Stage stage, LevelOutline lvl)
     {
         super(q, a, r, stage, lvl);
+        currentLevel++;
     }
 
     public void setScene() 
     {
-        if(level.getPreviousSceneScore() == 0)
+        if(level.getPreviousSceneScore() == 0 && currentLevel == 1)
         {
             VBox gameOverPane = new VBox(20);
             gameOverPane.setAlignment(Pos.CENTER);
@@ -56,7 +58,7 @@ public class SceneThree extends SceneOutline {
             resultScreen = new Scene(gameOverPane, 720, 540);
             primaryStage.setScene(resultScreen);
         }
-        if(level.getPreviousSceneScore() == 1)
+        if(level.getPreviousSceneScore() == 1 && currentLevel == 1)
         {
             VBox gameOverPane = new VBox(20);
             gameOverPane.setAlignment(Pos.CENTER);

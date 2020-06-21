@@ -18,15 +18,17 @@ import javafx.stage.Stage;
 
 public class SceneTwo extends SceneOutline 
 {
+    private static int currentLevel;
     public SceneTwo(String q, String[] a, String[] r, Stage stage, LevelOutline lvl)
     {
         super(q, a, r, stage, lvl);
+        currentLevel++;
     }
 
     //sets up scene two to display for the user
     public void setScene() 
     {
-        if(level.getPreviousSceneScore() == 0) //if the player chose the "dumb" option
+        if(level.getPreviousSceneScore() == 0 && currentLevel == 1) //if the player chose the "dumb" option
         {
             VBox gameOverPane = new VBox(20);
             gameOverPane.setAlignment(Pos.CENTER);

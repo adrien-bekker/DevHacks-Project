@@ -14,9 +14,11 @@ import java.util.concurrent.TimeUnit;
 
 public class SceneOne extends SceneOutline
 {
+    private static int currentLevel;
     public SceneOne(String q, String[] a, String[] r, Stage stage, LevelOutline lvl) 
     {
         super(q, a, r, stage, lvl);
+        currentLevel++;
     }
 
     public void setScene() 
