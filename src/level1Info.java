@@ -20,7 +20,7 @@ public class level1Info extends Screen {
 
     public Scene getScene() 
     {
-        // Creates pane and label
+        // Creates vbox and label
         VBox vBox = new VBox();
         Label info = new Label("Hi " + player + "! You are a surgeon at Northwestern Memorial Hospital and have finished your residency.\n" + 
                                 "Your first patient has fallen off a bike and requires stitches. Click next to start your first surgery.\n" + 
