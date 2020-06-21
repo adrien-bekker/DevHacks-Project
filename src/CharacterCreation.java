@@ -1,4 +1,6 @@
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -7,7 +9,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class CharacterCreation extends Screen
@@ -61,6 +62,14 @@ public class CharacterCreation extends Screen
 
     public void buttonActivation()
     {
-
+        // When next button is pressed
+        EventHandler<ActionEvent> eventNext = new EventHandler<ActionEvent>() { 
+            public void handle(ActionEvent e) 
+            { 
+                new LevelOne(primaryStage);
+            } 
+        };
+        
+        next.setOnAction(eventNext);
     }
 }

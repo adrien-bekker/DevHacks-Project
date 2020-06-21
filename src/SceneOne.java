@@ -9,28 +9,31 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class SceneOne 
+import java.util.*;
+
+public class SceneOne extends Screen
 {
     private String question;
     private String[] answers, responses;
     private ToggleGroup group;
     private RadioButton button1, button2, button3, button4;
     private Button confirm;
-    private int score, scene1Pos = 0;
+    private int score = -1, scene1Pos = 0;
     private Scene sampleScene;
     private Stage primaryStage;
     private Label feedback;
-    public SceneOne(String q, String[] a, String[] r, Stage pStage)
+    boolean stop = false;
+
+    public SceneOne(String q, String[] a, String[] r, Stage stage)
     {
+        super(stage);
         question = q;
         answers = a;
         responses = r;
         group = new ToggleGroup();
-        primaryStage = pStage;
-        start(); //temporary
     }
 
-    public void start()
+    public Scene getScene()
     {
         score = -1;
         Label task = new Label(question);
@@ -40,14 +43,13 @@ public class SceneOne
         configureB2();
         configureB3();
         configureB4();
-        score = configureConfirm();
+        confirm = new Button("Confirm");
 
         VBox pane1 = new VBox(5);
         pane1.getChildren().addAll(task, button1, button2, button3, button4, confirm, feedback);
         sampleScene = new Scene(pane1);
-        primaryStage.setScene(sampleScene);
-        primaryStage.show();
-        //return score;
+        buttonActivation();
+        return sampleScene;
     }
 
     private void configureB1()
@@ -74,9 +76,8 @@ public class SceneOne
         button4.setToggleGroup(group);
     }
 
-    private int configureConfirm()
+    public void buttonActivation()
     {
-        confirm = new Button("Confirm");
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() { 
             public void handle(ActionEvent e) 
             { 
@@ -100,12 +101,9 @@ public class SceneOne
                         score = 0;
                     }
                 }
-                feedback.setText(score + "");
+                
             } 
-        };
-        
-        confirm.setOnAction(event);
-        return score;
+        }
     }
 
     public int getScore()
@@ -113,8 +111,9 @@ public class SceneOne
         return score;
     }
 
-    public Scene getScene()
+    public void waiter()
     {
-        return sampleScene;
+        
     }
+
 }
