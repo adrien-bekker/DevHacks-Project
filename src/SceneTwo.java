@@ -19,7 +19,8 @@ public class SceneTwo extends Screen {
         // TODO Auto-generated method stub
 
     }
-    /*private String question;
+    /*
+    private String question;
     private String[] answers, responses;
     private ToggleGroup group;
     private RadioButton button1, button2, button3, button4;
@@ -55,26 +56,6 @@ public class SceneTwo extends Screen {
         sampleScene = new Scene(pane1, 720, 540);
         primaryStage.setScene(sampleScene);
         buttonActivation();
-        /*while(group.getSelectedToggle().equals(null))
-                {
-                    if(group.getSelectedToggle().equals(button1))
-                    {
-                        score = 3;
-                        
-                    }
-                    else if(group.getSelectedToggle().equals(button2))
-                    {
-                        score = 2;
-                    }
-                    else if(group.getSelectedToggle().equals(button3))
-                    {
-                        score = 1;
-                    }
-                    else if(group.getSelectedToggle().equals(button4))
-                    {
-                        score = 0;
-                    }
-                } 
         
         System.out.println(group.getSelectedToggle());
         primaryStage.show();
