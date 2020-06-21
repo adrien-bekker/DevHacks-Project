@@ -23,17 +23,17 @@ import java.util.concurrent.TimeUnit;
 
 public class SceneThree extends SceneOutline 
 {
-    private static int currentLevel;
     public SceneThree(String q, String[] a, String[] r, Stage stage, LevelOutline lvl)
     {
         super(q, a, r, stage, lvl);
-        currentLevel++;
     }
 
     public void setScene() 
     {
+        System.out.println(currentLevel);
         if(level.getPreviousSceneScore() == 0 && currentLevel == 1)
         {
+            currentLevel--;
             VBox gameOverPane = new VBox(20);
             gameOverPane.setAlignment(Pos.CENTER);
             Label failReason = new Label("The patient screams in pain. They also contract an infection, so they are transferred to a different hospital.");
@@ -73,6 +73,7 @@ public class SceneThree extends SceneOutline
         }
         if(level.getPreviousSceneScore() == 1 && currentLevel == 1)
         {
+            currentLevel--;
             VBox gameOverPane = new VBox(20);
             gameOverPane.setAlignment(Pos.CENTER);
 

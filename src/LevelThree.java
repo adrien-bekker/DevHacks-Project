@@ -11,8 +11,8 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 
-public class LevelTwo extends LevelOutline {
-    public LevelTwo(Stage stage)
+public class LevelThree extends LevelOutline {
+    public LevelThree(Stage stage)
     {
         super(stage);
     }

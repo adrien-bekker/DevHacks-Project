@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class SceneOutline extends Screen
 {
+    protected static int currentLevel;
     protected Scene resultScreen;
     protected String question;
     protected String[] answers, responses;

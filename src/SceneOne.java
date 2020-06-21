@@ -18,9 +18,7 @@ import javafx.stage.Stage;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class SceneOne extends SceneOutline
-{
-    private static int currentLevel;
+public class SceneOne extends SceneOutline {
     public SceneOne(String q, String[] a, String[] r, Stage stage, LevelOutline lvl) 
     {
         super(q, a, r, stage, lvl);
@@ -29,6 +27,7 @@ public class SceneOne extends SceneOutline
 
     public void setScene() 
     {
+        System.out.println(currentLevel);
         score = -1;
         Label task = new Label(question);
         feedback = new Label(" ");
@@ -98,10 +97,5 @@ public class SceneOne extends SceneOutline
         nxtPage.setBackground(buttonBack);
 
         pane1.getChildren().add(nxtPage);
-    }
-
-    public void setLevel(int newLevel)
-    {
-        currentLevel = newLevel;
     }
 }
