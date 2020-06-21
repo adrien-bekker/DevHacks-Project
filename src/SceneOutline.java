@@ -12,8 +12,9 @@ import javafx.stage.Stage;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public abstract class SceneOutline extends Screen{
-
+public abstract class SceneOutline extends Screen
+{
+    protected Scene resultScreen;
     protected String question;
     protected String[] answers, responses;
     protected ToggleGroup group;
@@ -36,22 +37,22 @@ public abstract class SceneOutline extends Screen{
 
     protected abstract void setScene();
 
-    private void configureB1() {
+    protected void configureB1() {
         button1 = new RadioButton(answers[0]);
         button1.setToggleGroup(group);
     }
 
-    private void configureB2() {
+    protected void configureB2() {
         button2 = new RadioButton(answers[1]);
         button2.setToggleGroup(group);
     }
 
-    private void configureB3() {
+    protected void configureB3() {
         button3 = new RadioButton(answers[2]);
         button3.setToggleGroup(group);
     }
 
-    private void configureB4() {
+    protected void configureB4() {
         button4 = new RadioButton(answers[3]);
         button4.setToggleGroup(group);
     }
