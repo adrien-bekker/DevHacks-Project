@@ -33,7 +33,7 @@ public class SceneOne extends Screen
         group = new ToggleGroup();
     }
 
-    public Scene getScene()
+    public void setScene()
     {
         score = -1;
         Label task = new Label(question);
@@ -47,7 +47,8 @@ public class SceneOne extends Screen
 
         VBox pane1 = new VBox(5);
         pane1.getChildren().addAll(task, button1, button2, button3, button4, feedback);
-        sampleScene = new Scene(pane1);
+        sampleScene = new Scene(pane1, 720, 540);
+        primaryStage.setScene(sampleScene);
         //buttonActivation();
         while(!group.getSelectedToggle().isSelected())
                 {
@@ -69,7 +70,7 @@ public class SceneOne extends Screen
                         score = 0;
                     }
                 }
-        return sampleScene;
+        primaryStage.show();
     }
 
     private void configureB1()
@@ -134,6 +135,12 @@ public class SceneOne extends Screen
     public void waiter()
     {
         
+    }
+
+    @Override
+    public Scene getScene() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }
