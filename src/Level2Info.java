@@ -7,6 +7,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -37,7 +39,12 @@ public class Level2Info extends Screen {
         info.setPadding(new Insets(10));
         next = new Button("Next");
         info.setAlignment(Pos.CENTER);
-        vBox.getChildren().addAll(info, next);
+
+        ImageView appendix = new ImageView(new Image("file:src/Appendix.png"));
+        appendix.setFitHeight(150);
+        appendix.setFitWidth(300);
+        
+        vBox.getChildren().addAll(info, appendix, next);
         vBox.setAlignment(Pos.CENTER);
 
         // Creates background and sets button color

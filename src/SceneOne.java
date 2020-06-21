@@ -38,6 +38,7 @@ public class SceneOne extends SceneOutline {
         confirm = new Button("Confirm");
         
         pane1 = new VBox(20);
+        VBox pane2 = new VBox(10);
         pane1.getChildren().addAll(task);
         int chosen = 0;
 
@@ -51,16 +52,19 @@ public class SceneOne extends SceneOutline {
             randIndex = (int) (Math.random()*randoms.size());
             chosen = randoms.remove(randIndex);
             if(chosen == 1)
-                pane1.getChildren().add(button1);
+                pane2.getChildren().add(button1);
             else if(chosen == 2)
-                pane1.getChildren().add(button2);
+                pane2.getChildren().add(button2);
             else if(chosen == 3)
-                pane1.getChildren().add(button3);
+                pane2.getChildren().add(button3);
             else if(chosen == 4)
-                pane1.getChildren().add(button4);
+                pane2.getChildren().add(button4);
         }
         
+        
         // Styling
+        pane2.setAlignment(Pos.CENTER_LEFT);
+        pane1.getChildren().add(pane2);
         pane1.setAlignment(Pos.CENTER);
         BackgroundFill backFill = new BackgroundFill(Color.AQUAMARINE, CornerRadii.EMPTY, Insets.EMPTY);
         Background back = new Background(backFill);

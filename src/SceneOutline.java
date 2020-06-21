@@ -1,5 +1,6 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,6 +27,7 @@ public abstract class SceneOutline extends Screen
     protected Label feedback;
     protected LevelOutline level;
     protected VBox pane1;
+    protected final int PADDING;
 
     public SceneOutline(String q, String[] a, String[] r, Stage stage, LevelOutline lvl) {
         super(stage);
@@ -34,6 +36,7 @@ public abstract class SceneOutline extends Screen
         responses = r;
         group = new ToggleGroup();
         level = lvl;
+        PADDING = 15;
     }
 
     protected abstract void setScene();
@@ -41,21 +44,29 @@ public abstract class SceneOutline extends Screen
     protected void configureB1() {
         button1 = new RadioButton(answers[0]);
         button1.setToggleGroup(group);
+        button1.setWrapText(true);
+        button1.setPadding(new Insets(PADDING));
     }
 
     protected void configureB2() {
         button2 = new RadioButton(answers[1]);
         button2.setToggleGroup(group);
+        button2.setWrapText(true);
+        button2.setPadding(new Insets(PADDING));
     }
 
     protected void configureB3() {
         button3 = new RadioButton(answers[2]);
         button3.setToggleGroup(group);
+        button3.setWrapText(true);
+        button3.setPadding(new Insets(PADDING));
     }
 
     protected void configureB4() {
         button4 = new RadioButton(answers[3]);
         button4.setToggleGroup(group);
+        button4.setWrapText(true);
+        button4.setPadding(new Insets(PADDING));
     }
 
     public void buttonActivation() {

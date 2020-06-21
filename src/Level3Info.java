@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -15,34 +17,33 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class level1Info extends Screen {
+public class Level3Info extends Screen {
     private Button next;
     private String player;
 
-    public level1Info(Stage stage, String user)
+    public Level3Info(Stage stage)
     {
-        super(stage);
-        player = user;
+        super(stage);  
     }
 
     public Scene getScene() 
     {
         // Creates vbox and label
         VBox vBox = new VBox();
-        Label info = new Label("Hi " + player + "! You are a surgeon at Northwestern Memorial Hospital and have finished your residency. " + 
-                                "Your first patient has fallen off a bike and requires stitches. Click next to start your first surgery. " + 
-                                "Remember, the patient's life depends on your success. \n" + " ");
+        Label info = new Label("Your patient has shown signs of liver failure including jaundice and swollen ankles. " + 
+            "You think that the patient has liver disease and needs a transplant. " + 
+            "You will perform the procedure. What will you do?" + " ");
         info.setStyle("-fx-font-style: italic; -fx-font-size: 18;");
         info.setWrapText(true);
         info.setPadding(new Insets(10));
         next = new Button("Next");
         info.setAlignment(Pos.CENTER);
 
-        ImageView knee = new ImageView(new Image("file:src/Knee.png"));
-        knee.setFitHeight(150);
-        knee.setFitWidth(300);
-        
-        vBox.getChildren().addAll(info, knee, next);
+        ImageView liver = new ImageView(new Image("file:src/Liver.png"));
+        liver.setFitHeight(150);
+        liver.setFitWidth(300);
+
+        vBox.getChildren().addAll(info, liver, next);
         vBox.setAlignment(Pos.CENTER);
 
         // Creates background and sets button color
@@ -52,7 +53,7 @@ public class level1Info extends Screen {
         BackgroundFill buttonFill = new BackgroundFill(Color.rgb(227, 230, 94), CornerRadii.EMPTY, Insets.EMPTY);
         Background buttonBack = new Background(buttonFill);
         next.setBackground(buttonBack);
-
+        buttonActivation();
         Scene scene = new Scene(vBox, 720, 540);
 
         return scene;
@@ -60,11 +61,11 @@ public class level1Info extends Screen {
 
     public void buttonActivation() 
     {
-        // When next button is pressed
+                // When next button is pressed
         EventHandler<ActionEvent> eventNext = new EventHandler<ActionEvent>() { 
             public void handle(ActionEvent e) 
             { 
-                new LevelOne(primaryStage);
+                new LevelThree(primaryStage);
             } 
         };
         
