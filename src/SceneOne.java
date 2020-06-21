@@ -103,7 +103,7 @@ public class SceneOne extends Screen
                 }
                 
             } 
-        }
+        };
     }
 
     public int getScore()
