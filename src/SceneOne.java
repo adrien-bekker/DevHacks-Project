@@ -18,7 +18,7 @@ public class SceneOne extends Screen {
     private ToggleGroup group;
     private RadioButton button1, button2, button3, button4;
     private Button confirm, nxtPage;
-    private int score = -1, scene1Pos = 0;
+    private int score = -1;
     private Scene sampleScene;
     private Label feedback;
     private LevelOne level;
@@ -51,9 +51,11 @@ public class SceneOne extends Screen {
         for(int i = 1; i <= 4; i++)
             randoms.add(i);
 
+        int randIndex = 0;
         while(randoms.size() > 0)
         {
-            chosen = randoms.remove((int) (Math.random()*(randoms.size())));
+            randIndex = (int) (Math.random()*randoms.size());
+            chosen = randoms.remove(randIndex);
             if(chosen == 1)
                 pane1.getChildren().add(button1);
             else if(chosen == 2)
@@ -69,7 +71,6 @@ public class SceneOne extends Screen {
         primaryStage.setScene(sampleScene);
         buttonActivation();
 
-        System.out.println(group.getSelectedToggle());
         primaryStage.show();
     }
 
