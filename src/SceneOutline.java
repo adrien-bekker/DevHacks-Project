@@ -23,10 +23,10 @@ public abstract class SceneOutline extends Screen
     protected int score = -1, scene1Pos = 0;
     protected Scene sampleScene;
     protected Label feedback;
-    protected LevelOne level;
+    protected LevelOutline level;
     protected VBox pane1;
     
-    public SceneOutline(String q, String[] a, String[] r, Stage stage, LevelOne lvl) {
+    public SceneOutline(String q, String[] a, String[] r, Stage stage, LevelOutline lvl) {
         super(stage);
         question = q;
         answers = a;

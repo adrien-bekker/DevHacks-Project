@@ -21,6 +21,8 @@ public class CharacterCreation extends Screen
 {
     private Button next;
     private TextField nameInput;
+    private Label lbl = new Label("");
+    private ToggleGroup genderGroup = new ToggleGroup();
 
     public CharacterCreation(Stage stage)
     {
@@ -51,7 +53,6 @@ public class CharacterCreation extends Screen
 
         // Creates a pane with Gender options
         GridPane genderPane = new GridPane();
-        ToggleGroup genderGroup = new ToggleGroup();
         Label gender = new Label("Gender: ");
         gender.setStyle("-fx-font-weight: bold; -fx-font-size: 15");
         RadioButton male = new RadioButton("Male"); 
@@ -66,6 +67,11 @@ public class CharacterCreation extends Screen
         genderPane.add(other, 0, 3);
         genderPane.setAlignment(Pos.CENTER);
 
+        // Label Pane
+        GridPane lblPane = new GridPane();
+        lblPane.add(lbl, 0, 0);
+        lblPane.setAlignment(Pos.CENTER); 
+
         // Creates background and sets button color
         BackgroundFill backFill = new BackgroundFill(Color.AQUAMARINE, CornerRadii.EMPTY, Insets.EMPTY);
         Background back = new Background(backFill);
@@ -76,7 +82,7 @@ public class CharacterCreation extends Screen
         next.setBackground(buttonBack);
 
         // Creates a button and adds panes and button to the VBox
-        vbox.getChildren().addAll(pane, namePane, genderPane, next);
+        vbox.getChildren().addAll(pane, namePane, genderPane, lblPane, next);
         vbox.setAlignment(Pos.CENTER);
 
         // Creates and returns a scene with all the items
@@ -91,8 +97,15 @@ public class CharacterCreation extends Screen
             public void handle(ActionEvent e) 
             { 
                 String player = nameInput.getText();
-                level1Info info = new level1Info(primaryStage, player);
-                switchScene(info);
+                if (!player.equals("") && !genderGroup.getSelectedToggle().equals(null))
+                {
+                    level1Info info = new level1Info(primaryStage, player);
+                    switchScene(info);
+                }
+                else
+                {
+                    lbl.setText("Please select a name and gender.");
+                }
             } 
         };
         
