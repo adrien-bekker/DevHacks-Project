@@ -1,12 +1,17 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class MainMenu extends Screen
@@ -33,8 +38,13 @@ public class MainMenu extends Screen
         image.setFitWidth(300);
         
 
+        // Creates background
+        BackgroundFill backFill = new BackgroundFill(Color.AQUAMARINE, CornerRadii.EMPTY, Insets.EMPTY);
+        Background back = new Background(backFill);
+        vBox.setBackground(back);
 
-        // Adds the objects to the box, then to the scene, and returns it
+
+        // Adds the objects to the vbox, then to the scene, and returns it
         vBox.getChildren().addAll(image, label, start, exit);
         Scene scene = new Scene(vBox, 720, 540);
         return scene;
