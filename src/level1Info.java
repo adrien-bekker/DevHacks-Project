@@ -31,7 +31,7 @@ public class level1Info extends Screen {
         VBox vBox = new VBox();
         Label info = new Label("Hi " + player + "! You are a surgeon at Northwestern Memorial Hospital and have finished your residency. " + 
                                 "Your first patient has fallen off a bike and requires stitches. Click next to start your first surgery. " + 
-                                "Remember, the patient's life depends on your success. \n" + " ");
+                                "Speed will reward you, with a 3x multiplier <1 min, 2x multiplier <2 min, 1.5x multiplier <3min. \n" + " ");
         info.setStyle("-fx-font-style: italic; -fx-font-size: 18;");
         info.setWrapText(true);
         info.setPadding(new Insets(10));
