@@ -21,7 +21,6 @@ public abstract class LevelOutline
     public LevelOutline(Stage stage, int num)
     {
         primaryStage = stage;
-        playSceneOne();
         currentScene = 0;
     }
 

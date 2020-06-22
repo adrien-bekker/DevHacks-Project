@@ -102,7 +102,7 @@ public abstract class SceneOutline extends Screen
                     button4.setDisable(true);
                     confirm.setDisable(true);
                     
-                    nxtPage = new Button("Next Page");
+                    nxtPage = new Button("Next");
                     setUpNextPage();
 
                 }
