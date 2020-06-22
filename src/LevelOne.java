@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 
 public class LevelOne extends LevelOutline
 {
+    private static int levelSum;
     public LevelOne(Stage stage) 
     {
         super(stage);
@@ -79,11 +80,11 @@ public class LevelOne extends LevelOutline
 
     public void getConclusionScreen()
     {
+        
         // Success or failure text
         VBox elements = new VBox(10);
-
+        levelSum = getSum();
         int sum = getSum();
-        
         Label congrats = new Label("");
         Button button = new Button("");
 
@@ -145,6 +146,10 @@ public class LevelOne extends LevelOutline
         primaryStage.setScene(l1EndScene);
     }
 
+    public int getLevelSum()
+    {
+        return levelSum;
+    }
     
 
 }

@@ -19,7 +19,9 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 
-public class LevelTwo extends LevelOutline {
+public class LevelTwo extends LevelOutline 
+{
+    private static int levelSum;
     public LevelTwo(Stage stage)
     {
         super(stage);
@@ -77,11 +79,8 @@ public class LevelTwo extends LevelOutline {
         // Success or failure text
         VBox elements = new VBox(10);
 
-        int sum = 0;
-        for(int i = 0; i < scores.size(); i++)
-        {
-            sum += scores.get(i);
-        }
+        levelSum = getSum();
+        int sum = getSum();
         
         Label congrats = new Label("");
         Button button = new Button("");
@@ -143,5 +142,10 @@ public class LevelTwo extends LevelOutline {
         Scene l1EndScene = new Scene(elements, 720, 540);
         primaryStage.setScene(l1EndScene);
       
+    }
+
+    public int getLevelSum()
+    {
+        return levelSum;
     }
 }
