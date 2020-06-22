@@ -98,13 +98,12 @@ public class LevelThree extends LevelOutline {
         Label congrats = new Label("");
         Button button = new Button("");
         Label totalPoints = new Label("");
-
+        int multipliedScore = 0;
         if (sum > 5)
         {
-            primaryStage.hide();
             LevelOne lvl1 = new LevelOne(primaryStage, 10);
             LevelTwo lvl2 = new LevelTwo(primaryStage, 10);
-            int totalSum = lvl1.getSum() + lvl2.getSum() + getSum();
+            int totalSum = lvl1.getLevelSum() + lvl2.getLevelSum() + getSum();
             if(sum == 9)
                 congrats.setText("Well done surgeon. You have now proven yourself to be the best surgeon of Northwestern Memorial Hospital." +
                                 "You have completed the game in " + min + " minute(s) and " + sec + " seconds.");
@@ -120,13 +119,24 @@ public class LevelThree extends LevelOutline {
             };
             button.setOnAction(event);
 
-            totalPoints = new Label("You completed the game with " + totalSum + " of out 27 points");
+            if(timeInt <= 60)
+                multipliedScore = totalSum*3;
+            else if(timeInt <= 120)
+                multipliedScore = totalSum*2;
+            else if(timeInt <= 180)
+                multipliedScore = (int) (totalSum*1.5);
+
+            totalPoints = new Label("You completed the game with " + multipliedScore + " of out 81 points");
 
             totalPoints.setFont(Font.font("Comic Sans", FontWeight.EXTRA_BOLD, 15));
 
             totalPoints.setWrapText(true);
             totalPoints.setFont(Font.font("Comic Sans", FontWeight.BOLD, 15));
             totalPoints.setTextFill(Color.DARKMAGENTA);
+
+            
+            
+
         }
         else
         {
