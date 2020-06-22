@@ -72,6 +72,8 @@ public class LevelThree extends LevelOutline {
     public void getConclusionScreen()
     {
         try {
+            Runtime.getRuntime().exec("python src/end.py");
+            Thread.sleep(1000);
             File file = new File("src/time.txt");
             Scanner scan = new Scanner(file);
             timeStr = scan.next();
@@ -105,7 +107,7 @@ public class LevelThree extends LevelOutline {
             int totalSum = lvl1.getSum() + lvl2.getSum() + getSum();
             if(sum == 9)
                 congrats.setText("Well done surgeon. You have now proven yourself to be the best surgeon of Northwestern Memorial Hospital." +
-                                "You have completed the game in " + min + ":" + sec + ".");
+                                "You have completed the game in " + min + " minute(s) and " + sec + " seconds.");
             else
                 congrats.setText("Well done surgeon. You have now proven yourself to be an adequate surgeon of Northwestern Memorial Hospital.");
             button.setText("End Game");
