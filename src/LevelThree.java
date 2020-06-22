@@ -1,4 +1,6 @@
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import javafx.event.ActionEvent;
@@ -20,6 +22,7 @@ import javafx.stage.Stage;
 
 
 public class LevelThree extends LevelOutline {
+    private static String timeStr;
     public LevelThree(Stage stage)
     {
         super(stage);
@@ -68,6 +71,19 @@ public class LevelThree extends LevelOutline {
 
     public void getConclusionScreen()
     {
+        try {
+            File file = new File("src/time.txt");
+            Scanner scan = new Scanner(file);
+            timeStr = scan.next();
+            scan.close();
+        } catch (Exception e) {
+            System.exit(404);
+        }
+
+        int timeInt = Integer.parseInt(timeStr);
+        int min = (int) timeInt / 60;
+        int sec = timeInt % 60;
+
         // Success or failure text
         VBox elements = new VBox(10);
 
@@ -88,7 +104,8 @@ public class LevelThree extends LevelOutline {
             LevelTwo lvl2 = new LevelTwo(primaryStage, 10);
             int totalSum = lvl1.getSum() + lvl2.getSum() + getSum();
             if(sum == 9)
-                congrats.setText("Well done surgeon. You have now proven yourself to be the best surgeon of Northwestern Memorial Hospital.");
+                congrats.setText("Well done surgeon. You have now proven yourself to be the best surgeon of Northwestern Memorial Hospital." +
+                                "You have completed the game in " + min + ":" + sec + ".");
             else
                 congrats.setText("Well done surgeon. You have now proven yourself to be an adequate surgeon of Northwestern Memorial Hospital.");
             button.setText("End Game");

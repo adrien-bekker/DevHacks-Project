@@ -24,6 +24,11 @@ public class LevelOne extends LevelOutline
     public LevelOne(Stage stage) 
     {
         super(stage);
+        try {
+            Runtime.getRuntime().exec("python src/start.py");
+        } catch (Exception e) {
+            System.exit(404);
+        }
     }
 
     public LevelOne(Stage stage, int num) 
